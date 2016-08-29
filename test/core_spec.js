@@ -143,6 +143,15 @@ describe('application logic', () => {
       }));
     });
 
+    it('ignore the vote if for an invalid entry', () => {
+      const state = Map({
+        pair: List.of('Chinatown', 'Snatch')
+      });
+
+      const nextState = vote(state, 'Inception');
+      expect(nextState).to.equal(state);
+    });
+
   });
 
 });
